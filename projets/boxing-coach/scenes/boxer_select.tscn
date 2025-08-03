@@ -1,0 +1,65 @@
+[gd_scene load_steps=6 format=3 uid="uid://dyja77uhw5fgw"]
+
+[ext_resource type="Script" uid="uid://cd1371s5wr0jk" path="res://scripts/boxer_select.gd" id="1_axp8l"]
+[ext_resource type="Texture2D" uid="uid://cnwqvheasqstt" path="res://assets/images/gym-inside.png" id="1_ns43r"]
+[ext_resource type="FontFile" uid="uid://vp1knco0la0y" path="res://assets/fonts/BadComic-Regular.ttf" id="2_axp8l"]
+[ext_resource type="PackedScene" uid="uid://d0e070eycooy" path="res://scenes/fighter_card.tscn" id="4_803an"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_803an"]
+texture = ExtResource("1_ns43r")
+modulate_color = Color(0.830335, 0.830335, 0.830335, 1)
+
+[node name="BoxerSelect" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_axp8l")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_803an")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -20.0
+offset_right = 20.0
+offset_bottom = 51.0
+grow_horizontal = 2
+theme_override_fonts/font = ExtResource("2_axp8l")
+theme_override_font_sizes/font_size = 50
+text = "Choose your fighter"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -400.0
+offset_top = -190.0
+offset_right = 400.0
+offset_bottom = 190.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 400
+
+[node name="Fighter1" parent="HBoxContainer" instance=ExtResource("4_803an")]
+layout_mode = 2
+
+[node name="Fighter2" parent="HBoxContainer" instance=ExtResource("4_803an")]
+layout_mode = 2
+
+[node name="Fighter3" parent="HBoxContainer" instance=ExtResource("4_803an")]
+layout_mode = 2

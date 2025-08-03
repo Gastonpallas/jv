@@ -1,0 +1,54 @@
+[gd_scene load_steps=8 format=3 uid="uid://dobpksj7rxvws"]
+
+[ext_resource type="Script" uid="uid://ch1xrku7kthx8" path="res://scripts/main.gd" id="1_o5qli"]
+[ext_resource type="Script" uid="uid://cbpc2mbwxd77t" path="res://scripts/game_state.gd" id="2_0wfyh"]
+[ext_resource type="Script" uid="uid://bam1vwwdvf6qe" path="res://scripts/ui.gd" id="3_sugp2"]
+[ext_resource type="PackedScene" uid="uid://c6ff7quypl6nt" path="res://scenes/buildings/LumberCamp.tscn" id="4_jyhfs"]
+[ext_resource type="Script" uid="uid://bml3ksebyy2t" path="res://scripts/grid.gd" id="5_tbgi4"]
+[ext_resource type="Script" uid="uid://788x170jbv5u" path="res://scripts/construction_menu.gd" id="6_tefeu"]
+[ext_resource type="PackedScene" uid="uid://p58ymfvoa3v7" path="res://scenes/elements/custom_button.tscn" id="7_o6xl0"]
+
+[node name="Main" type="Node2D"]
+script = ExtResource("1_o5qli")
+
+[node name="GameState" type="Node2D" parent="."]
+script = ExtResource("2_0wfyh")
+
+[node name="Grid" type="Node2D" parent="."]
+script = ExtResource("5_tbgi4")
+lumber_camp_scene = ExtResource("4_jyhfs")
+
+[node name="UI" type="CanvasLayer" parent="."]
+script = ExtResource("3_sugp2")
+
+[node name="ressources" type="Label" parent="UI"]
+offset_right = 40.0
+offset_bottom = 23.0
+text = "bois : 10 | ouvriers : 10"
+
+[node name="ConstructionMenu" type="HBoxContainer" parent="UI"]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -365.0
+offset_top = -103.0
+offset_right = 366.0
+grow_horizontal = 2
+grow_vertical = 0
+size_flags_vertical = 8
+script = ExtResource("6_tefeu")
+
+[node name="Button1" parent="UI/ConstructionMenu" instance=ExtResource("7_o6xl0")]
+layout_mode = 2
+toggle_mode = true
+text = "Bucheron"
+
+[node name="ButttonDelete" parent="UI/ConstructionMenu" instance=ExtResource("7_o6xl0")]
+layout_mode = 2
+toggle_mode = true
+text = "Détruire"
+
+[connection signal="pressed" from="UI/ConstructionMenu/Button1" to="UI/ConstructionMenu" method="_on_button_1_pressed"]
+[connection signal="pressed" from="UI/ConstructionMenu/ButttonDelete" to="UI/ConstructionMenu" method="_on_buttton_delete_pressed"]

@@ -1,0 +1,178 @@
+[gd_scene load_steps=8 format=3 uid="uid://chx3wudkvthsd"]
+
+[ext_resource type="FontFile" uid="uid://vp1knco0la0y" path="res://assets/fonts/BadComic-Regular.ttf" id="1_6x2g5"]
+[ext_resource type="Script" uid="uid://fil4yr30ftue" path="res://scripts/opp_card.gd" id="1_ui5ms"]
+[ext_resource type="FontFile" uid="uid://lwbkl8ckcfoi" path="res://assets/fonts/BadComic-Italic.ttf" id="2_ui5ms"]
+[ext_resource type="Texture2D" uid="uid://blsnd7rby45et" path="res://assets/portraits/mike_jackson.png" id="3_dgdfv"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_0eoqk"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_a5rdo"]
+bg_color = Color(0.786824, 0.689464, 0.474903, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+expand_margin_left = 10.0
+expand_margin_top = 10.0
+expand_margin_right = 10.0
+expand_margin_bottom = 10.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_y13t2"]
+bg_color = Color(0.786824, 0.689464, 0.474903, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+
+[node name="OppCard" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 338.0
+offset_top = 109.0
+offset_right = -459.0
+offset_bottom = -152.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+script = ExtResource("1_ui5ms")
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/focus = SubResource("StyleBoxEmpty_0eoqk")
+theme_override_styles/hover = SubResource("StyleBoxFlat_a5rdo")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_y13t2")
+theme_override_styles/normal = SubResource("StyleBoxFlat_y13t2")
+
+[node name="VBoxContainerStats" type="VBoxContainer" parent="Button"]
+layout_mode = 2
+offset_left = 8.0
+offset_top = 221.0
+offset_right = 152.0
+offset_bottom = 371.0
+theme_override_constants/separation = 6
+
+[node name="LabelStr" type="Label" parent="Button/VBoxContainerStats"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("1_6x2g5")
+text = "STrenght : "
+vertical_alignment = 1
+uppercase = true
+
+[node name="LabelSta" type="Label" parent="Button/VBoxContainerStats"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_ui5ms")
+text = "Stamina :"
+vertical_alignment = 1
+uppercase = true
+
+[node name="LabelHp" type="Label" parent="Button/VBoxContainerStats"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("1_6x2g5")
+text = "Hp :"
+vertical_alignment = 1
+uppercase = true
+
+[node name="LabelSpd" type="Label" parent="Button/VBoxContainerStats"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("1_6x2g5")
+text = "Speed :"
+vertical_alignment = 1
+uppercase = true
+
+[node name="LabelTec" type="Label" parent="Button/VBoxContainerStats"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("1_6x2g5")
+text = "technique :"
+vertical_alignment = 1
+uppercase = true
+
+[node name="VBoxContainerInfos" type="VBoxContainer" parent="Button"]
+layout_mode = 1
+offset_left = 7.0
+offset_top = 4.0
+offset_right = 237.0
+offset_bottom = 163.0
+theme_override_constants/separation = 6
+
+[node name="LabelName" type="Label" parent="Button/VBoxContainerInfos"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("1_6x2g5")
+text = "Mike Tyson"
+vertical_alignment = 1
+uppercase = true
+
+[node name="LabelAlias" type="Label" parent="Button/VBoxContainerInfos"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_ui5ms")
+text = "\"Iron\""
+vertical_alignment = 1
+uppercase = true
+
+[node name="LabelAge" type="Label" parent="Button/VBoxContainerInfos"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("1_6x2g5")
+text = "35 yo"
+vertical_alignment = 1
+uppercase = true
+
+[node name="LabelHeight" type="Label" parent="Button/VBoxContainerInfos"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("1_6x2g5")
+text = "1,80 M"
+vertical_alignment = 1
+uppercase = true
+
+[node name="LabelRecord" type="Label" parent="Button/VBoxContainerInfos"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("1_6x2g5")
+text = "28-3"
+vertical_alignment = 1
+uppercase = true
+
+[node name="LabelStance" type="Label" parent="Button/VBoxContainerInfos"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("1_6x2g5")
+text = "Orthodox"
+vertical_alignment = 1
+uppercase = true
+
+[node name="LabelCountry" type="Label" parent="Button/VBoxContainerInfos"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("1_6x2g5")
+text = "USA"
+vertical_alignment = 1
+uppercase = true
+
+[node name="Portrait" type="TextureRect" parent="Button"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -136.0
+offset_top = 5.0
+offset_right = -6.0
+offset_bottom = 164.0
+grow_horizontal = 0
+texture = ExtResource("3_dgdfv")
+expand_mode = 1
+stretch_mode = 5

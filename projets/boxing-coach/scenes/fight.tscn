@@ -1,0 +1,221 @@
+[gd_scene load_steps=11 format=3 uid="uid://33pn42v8xckp"]
+
+[ext_resource type="Texture2D" uid="uid://dafdlbgbbbxe0" path="res://assets/images/hall-inside.png" id="1_htrw1"]
+[ext_resource type="Script" uid="uid://boew7cp5twl6d" path="res://scripts/fight.gd" id="1_osnhv"]
+[ext_resource type="FontFile" uid="uid://vp1knco0la0y" path="res://assets/fonts/BadComic-Regular.ttf" id="2_osnhv"]
+[ext_resource type="PackedScene" uid="uid://dswnniohgdy1b" path="res://scenes/fight_stats.tscn" id="4_5mf5x"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_5mf5x"]
+texture = ExtResource("1_htrw1")
+modulate_color = Color(0.564962, 0.564962, 0.564962, 1)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_5mf5x"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qogor"]
+bg_color = Color(0.54099, 0.540991, 0.54099, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+expand_margin_left = 15.0
+expand_margin_top = 15.0
+expand_margin_right = 15.0
+expand_margin_bottom = 15.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_57w1i"]
+bg_color = Color(0.54099, 0.540991, 0.54099, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+expand_margin_left = 20.0
+expand_margin_top = 20.0
+expand_margin_right = 20.0
+expand_margin_bottom = 20.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5mf5x"]
+bg_color = Color(0.54099, 0.540991, 0.54099, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+expand_margin_left = 10.0
+expand_margin_top = 10.0
+expand_margin_right = 10.0
+expand_margin_bottom = 10.0
+
+[sub_resource type="ButtonGroup" id="ButtonGroup_5mf5x"]
+
+[node name="Fight" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_osnhv")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_5mf5x")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 465.0
+offset_top = 278.0
+offset_right = 682.0
+offset_bottom = 339.0
+theme_override_colors/font_color = Color(0.67451, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_osnhv")
+theme_override_font_sizes/font_size = 50
+text = "ROUND "
+
+[node name="Result" type="Label" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -148.5
+offset_top = 107.0
+offset_right = 148.5
+offset_bottom = 192.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(0.67451, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_osnhv")
+theme_override_font_sizes/font_size = 70
+uppercase = true
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 0
+offset_left = 415.0
+offset_top = 392.0
+offset_right = 753.0
+offset_bottom = 617.0
+theme_override_fonts/font = ExtResource("2_osnhv")
+theme_override_font_sizes/font_size = 50
+text = "Fight"
+
+[node name="ButtonNext" type="Button" parent="."]
+visible = false
+layout_mode = 0
+offset_left = 452.0
+offset_top = 436.0
+offset_right = 708.0
+offset_bottom = 575.0
+theme_override_fonts/font = ExtResource("2_osnhv")
+theme_override_font_sizes/font_size = 50
+text = "Next"
+
+[node name="HBoxContainerPlayer" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -738.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PlayerBars" parent="HBoxContainerPlayer" instance=ExtResource("4_5mf5x")]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="HBoxContainerOpp" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 11
+anchor_left = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -394.0
+grow_horizontal = 0
+grow_vertical = 2
+
+[node name="OppBars" parent="HBoxContainerOpp" instance=ExtResource("4_5mf5x")]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="KOPlayer" type="Label" parent="."]
+visible = false
+layout_mode = 0
+offset_left = 97.0
+offset_top = 32.0
+offset_right = 314.0
+offset_bottom = 152.0
+theme_override_colors/font_color = Color(0.67451, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_osnhv")
+theme_override_font_sizes/font_size = 100
+text = "K.O"
+horizontal_alignment = 1
+
+[node name="KOOpp" type="Label" parent="."]
+visible = false
+layout_mode = 0
+offset_left = 848.0
+offset_top = 42.0
+offset_right = 1065.0
+offset_bottom = 162.0
+theme_override_colors/font_color = Color(0.67451, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_osnhv")
+theme_override_font_sizes/font_size = 100
+text = "K.O"
+horizontal_alignment = 1
+
+[node name="CombatTimer" type="Timer" parent="."]
+
+[node name="OrderContainer" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -233.0
+offset_right = 273.0
+offset_bottom = 228.0
+grow_horizontal = 2
+
+[node name="Order1" type="Button" parent="OrderContainer"]
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 4
+theme_override_styles/focus = SubResource("StyleBoxEmpty_5mf5x")
+theme_override_styles/hover = SubResource("StyleBoxFlat_qogor")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_57w1i")
+theme_override_styles/normal = SubResource("StyleBoxFlat_5mf5x")
+toggle_mode = true
+button_group = SubResource("ButtonGroup_5mf5x")
+text = "Orders"
+
+[node name="Order2" type="Button" parent="OrderContainer"]
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 4
+theme_override_styles/focus = SubResource("StyleBoxEmpty_5mf5x")
+theme_override_styles/hover = SubResource("StyleBoxFlat_qogor")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_57w1i")
+theme_override_styles/normal = SubResource("StyleBoxFlat_5mf5x")
+toggle_mode = true
+button_group = SubResource("ButtonGroup_5mf5x")
+text = "Orders"
+
+[node name="Order3" type="Button" parent="OrderContainer"]
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 4
+theme_override_styles/focus = SubResource("StyleBoxEmpty_5mf5x")
+theme_override_styles/hover = SubResource("StyleBoxFlat_qogor")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_57w1i")
+theme_override_styles/normal = SubResource("StyleBoxFlat_5mf5x")
+toggle_mode = true
+button_group = SubResource("ButtonGroup_5mf5x")
+text = "Orders"
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="ButtonNext" to="." method="_on_button_next_pressed"]
+[connection signal="timeout" from="CombatTimer" to="." method="_on_combat_timer_timeout"]
+[connection signal="pressed" from="OrderContainer/Order1" to="." method="_on_order_1_pressed"]
+[connection signal="pressed" from="OrderContainer/Order2" to="." method="_on_order_2_pressed"]
+[connection signal="pressed" from="OrderContainer/Order3" to="." method="_on_order_3_pressed"]

@@ -1,0 +1,129 @@
+[gd_scene load_steps=8 format=3 uid="uid://c11gcmorp2d0t"]
+
+[ext_resource type="Script" uid="uid://c3tf458eiy63r" path="res://scripts/gym.gd" id="1_4duur"]
+[ext_resource type="Texture2D" uid="uid://cnwqvheasqstt" path="res://assets/images/gym-inside.png" id="2_5hyia"]
+[ext_resource type="Texture2D" uid="uid://bx53f44ehthl6" path="res://assets/portraits/hiroshi_tanaka.png" id="3_8el2m"]
+[ext_resource type="FontFile" uid="uid://lwbkl8ckcfoi" path="res://assets/fonts/BadComic-Italic.ttf" id="3_oxjoy"]
+[ext_resource type="FontFile" uid="uid://vp1knco0la0y" path="res://assets/fonts/BadComic-Regular.ttf" id="4_wp3es"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_8el2m"]
+texture = ExtResource("2_5hyia")
+modulate_color = Color(0.830335, 0.830335, 0.830335, 1)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_oxjoy"]
+
+[node name="Gym" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_4duur")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_8el2m")
+
+[node name="Header" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -359.0
+offset_right = -30.0
+offset_bottom = 50.0
+grow_horizontal = 0
+theme_override_constants/separation = 20
+
+[node name="LabelArgent" type="Label" parent="Header"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_oxjoy")
+theme_override_font_sizes/font_size = 30
+text = "money"
+
+[node name="LabelBalance" type="Label" parent="Header"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_oxjoy")
+theme_override_font_sizes/font_size = 30
+text = "balance"
+
+[node name="LabelReputation" type="Label" parent="Header"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_oxjoy")
+theme_override_font_sizes/font_size = 30
+text = "rep"
+
+[node name="Footer" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -242.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_constants/separation = 20
+
+[node name="Button" type="Button" parent="Footer"]
+custom_minimum_size = Vector2(180, 0)
+layout_mode = 2
+
+[node name="Portrait" type="TextureRect" parent="Footer/Button"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -77.1361
+offset_right = 77.1361
+offset_bottom = 212.0
+grow_horizontal = 2
+texture = ExtResource("3_8el2m")
+expand_mode = 3
+
+[node name="LabelName" type="Label" parent="Footer/Button"]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -23.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_fonts/font = ExtResource("4_wp3es")
+text = "Nom du boxeur"
+horizontal_alignment = 1
+
+[node name="FatiguePanel" type="Panel" parent="Footer/Button"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 1.0
+offset_right = 13.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TimeButton" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -212.0
+offset_top = -47.0
+offset_bottom = 40.0
+grow_horizontal = 0
+grow_vertical = 2
+theme_override_styles/focus = SubResource("StyleBoxEmpty_oxjoy")
+text = "Advance Time"
+
+[connection signal="pressed" from="Footer/Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="TimeButton" to="." method="_on_time_button_pressed"]

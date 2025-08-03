@@ -1,0 +1,297 @@
+{
+  "featherweight": [
+    {
+      "name": "Alex Rivera",
+      "alias": "The Texan Flash",
+      "country": "USA",
+      "height": 1.55,
+      "weight": 50,
+      "age": 20,
+      "wins": 3,
+      "loses": 5,
+      "portrait": "res://assets/portraits/alex_rivera.png", 
+      "stance": "orthodox",
+      "stats": {
+        "strength": 15,
+        "stamina": 25,
+        "hp": 25,
+        "speed": 10,
+        "technic": 15
+      }
+    },
+    {
+      "name": "Mark Lee",
+      "alias": "The Southpaw Sniper",
+      "country": "UK",
+      "height": 1.58,
+      "weight": 50,
+      "age": 21,
+      "wins": 5,
+      "loses": 4,
+      "portrait": "res://assets/portraits/mark_lee.png", 
+      "stance": "southpaw",
+      "stats": {
+        "strength": 20,
+        "stamina": 25,
+        "hp": 30,
+        "speed": 15,
+        "technic": 20
+      }
+    },
+    {
+      "name": "Carlos Gutiérrez",
+      "alias": "El Relámpago",
+      "country": "Mexico",
+      "height": 1.60,
+      "weight": 50,
+      "age": 22,
+      "wins": 8,
+      "loses": 2,
+      "portrait": "res://assets/portraits/carlos_gutierrez.png", 
+      "stance": "orthodox",
+      "stats": {
+        "strength": 25,
+        "stamina": 30,
+        "hp": 35,
+        "speed": 25,
+        "technic": 30
+      }
+    }
+  ],
+  "lightweight": [
+    {
+      "name": "Dante Cruz",
+      "alias": "Iron Cruz",
+      "country": "USA",
+      "height": 1.62,
+      "weight": 60,
+      "age": 22,
+      "wins": 4,
+      "loses": 6,
+      "portrait": "res://assets/portraits/dante_cruz.png", 
+      "stance": "orthodox",
+      "stats": {
+        "strength": 20,
+        "stamina": 35,
+        "hp": 30,
+        "speed": 15,
+        "technic": 25
+      }
+    },
+    {
+      "name": "Sergio Torres",
+      "alias": "El Templado",
+      "country": "Mexico",
+      "height": 1.63,
+      "weight": 60,
+      "age": 23,
+      "wins": 7,
+      "loses": 3,
+      "portrait": "res://assets/portraits/sergio_torres.png", 
+      "stance": "orthodox",
+      "stats": {
+        "strength": 25,
+        "stamina": 40,
+        "hp": 35,
+        "speed": 20,
+        "technic": 30
+      }
+    },
+    {
+      "name": "Ivan Petrov",
+      "alias": "The Red Comet",
+      "country": "Russia",
+      "height": 1.65,
+      "weight": 60,
+      "age": 24,
+      "wins": 9,
+      "loses": 1,
+      "portrait": "res://assets/portraits/ivan_petrov.png", 
+      "stance": "orthodox",
+      "stats": {
+        "strength": 30,
+        "stamina": 45,
+        "hp": 50,
+        "speed": 25,
+        "technic": 30
+      }
+    }
+  ],
+  "welterweight": [
+    {
+      "name": "Jason Brooks",
+      "alias": "The Grinder",
+      "country": "USA",
+      "height": 1.73,
+      "weight": 70,
+      "age": 23,
+      "wins": 5,
+      "loses": 5,
+      "portrait": "res://assets/portraits/jason_brooks.png", 
+      "stance": "orthodox",
+      "stats": {
+        "strength": 30,
+        "stamina": 35,
+        "hp": 40,
+        "speed": 20,
+        "technic": 30
+      }
+    },
+    {
+      "name": "Miguel Silva",
+      "alias": "O Furacão",
+      "country": "Brazil",
+      "height": 1.78,
+      "weight": 70,
+      "age": 24,
+      "wins": 6,
+      "loses": 4,
+      "portrait": "res://assets/portraits/miguel_silva.png", 
+      "stance": "orthodox",
+      "stats": {
+        "strength": 35,
+        "stamina": 40,
+        "hp": 45,
+        "speed": 25,
+        "technic": 35
+      }
+    },
+    {
+      "name": "Victor Ivanov",
+      "alias": "The Iron Fist",
+      "country": "Russia",
+      "height": 1.75,
+      "weight": 70,
+      "age": 25,
+      "wins": 10,
+      "loses": 2,
+      "portrait": "res://assets/portraits/victor_ivanov.png", 
+      "stance": "southpaw",
+      "stats": {
+        "strength": 40,
+        "stamina": 45,
+        "hp": 50,
+        "speed": 30,
+        "technic": 40
+      }
+    }
+  ],
+  "middleweight": [
+    {
+      "name": "David Clark",
+      "alias": "The Silent Mauler",
+      "country": "USA",
+      "height": 1.80,
+      "weight": 80,
+      "age": 25,
+      "wins": 7,
+      "loses": 5,
+      "portrait": "res://assets/portraits/david_clark.png", 
+      "stance": "southpaw",
+      "stats": {
+        "strength": 40,
+        "stamina": 50,
+        "hp": 55,
+        "speed": 25,
+        "technic": 40
+      }
+    },
+    {
+      "name": "Luke Thompson",
+      "alias": "The Outback Bomber",
+      "country": "Australia",
+      "height": 1.82,
+      "weight": 80,
+      "age": 26,
+      "wins": 8,
+      "loses": 3,
+      "portrait": "res://assets/portraits/luke_thompson.png", 
+      "stance": "orthodox",
+      "stats": {
+        "strength": 45,
+        "stamina": 55,
+        "hp": 60,
+        "speed": 30,
+        "technic": 45
+      }
+    },
+    {
+      "name": "Sergei Petrov",
+      "alias": "The Siberian Wall",
+      "country": "Russia",
+      "height": 1.83,
+      "weight": 80,
+      "age": 27,
+      "wins": 12,
+      "loses": 1,
+      "portrait": "res://assets/portraits/sergei_petrov.png", 
+      "stance": "orthodox",
+      "stats": {
+        "strength": 50,
+        "stamina": 60,
+        "hp": 70,
+        "speed": 35,
+        "technic": 50
+      }
+    }
+  ],
+  "heavyweight": [
+    {
+      "name": "Tommy Parker",
+      "alias": "The Freight Train",
+      "country": "USA",
+      "height": 1.90,
+      "weight": 90,
+      "age": 26,
+      "wins": 8,
+      "loses": 4,
+      "portrait": "res://assets/portraits/tommy_parker.png", 
+      "stance": "southpaw",
+      "stats": {
+        "strength": 50,
+        "stamina": 60,
+        "hp": 70,
+        "speed": 30,
+        "technic": 45
+      }
+    },
+    {
+      "name": "Igor Volkov",
+      "alias": "The Tsar",
+      "country": "Russia",
+      "height": 2.11,
+      "weight": 90,
+      "age": 28,
+      "wins": 11,
+      "loses": 3,
+      "portrait": "res://assets/portraits/igor_volkov.png", 
+      "stance": "orthodox",
+      "stats": {
+        "strength": 55,
+        "stamina": 65,
+        "hp": 80,
+        "speed": 35,
+        "technic": 50
+      }
+    },
+    {
+      "name": "Derrick Williams",
+      "alias": "Big D",
+      "country": "USA",
+      "height": 2.05,
+      "weight": 90,
+      "age": 30,
+      "wins": 15,
+      "loses": 1,
+      "portrait": "res://assets/portraits/derrick_williams.png", 
+      "stance": "orthodox",
+      "stats": {
+        "strength": 60,
+        "stamina": 70,
+        "hp": 85,
+        "speed": 40,
+        "technic": 55
+      }
+    }
+  ]
+}

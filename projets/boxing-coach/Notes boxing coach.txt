@@ -1,0 +1,219 @@
+Notes boxing coach
+
+TODO : 
+    ajouter des styles de boxe
+    des comportements 
+    des coups spéciaux
+    arbre de compétence ?
+
+Fight systeme 
+    par round 
+        celui qui met le plus de coup a gagné 
+        le nombre de coup lancé est estimé grâvce a la vitesse (si il a 20 il lance 20 coup par round)
+        la technique permet d'esquiver les coups
+        a chaque coup on perd de l'hp que l'on peut récupérer a chque round grace a l'endurance
+        ko chance
+
+        entre chaque round utiliser des capacité ou donner des ordres    
+
+        arbre de compétences
+
+        moral/confiance
+
+        boxing school / guard / styles
+
+        make your own boxer
+
+        sparing with your boxer 
+    
+
+Changer le systeme de combat : faire seconde par seconde avec des isntructions
+    odres : moove, block, neutral, distance, clinch, advance
+
+
+
+
+
+
+
+stats et stats de combat : lucidité, confiance, vision
+
+
+
+
+
+couleurs : 
+    str : #E0413C
+    sta : #2B538F
+    hp : #008535
+    spd : #E1D338
+    tec : #AD47E0
+
+
+
+comment rendre les combats interactifs et palpitants : 
+    durée
+    inlfuence du coach 
+
+cases avec les activitées
+arbre de compétences - différents en fonction des styles
+
+stats : 
+    lucidité 0- 100
+    endurance : 0 - 1000
+    moral : 0-100
+    distance : 0
+    position : 50
+
+    speed
+    force
+    technique
+
+    gestion de la distance
+
+    coup critiques
+
+    contre
+    esquive
+    block 
+
+
+
+si il va au tapis il se releve en fonction du moral sauf si c'est KO brutal
+
+a chaque round l'entraineur choisit trois actions : 
+    combinaison, attitude, 
+
+jab, 1-2, 1-2-3 - light on feet
+
+au bout d'un moment en fonction de la technique l'adversaire retient les coups de l'adversaire
+
+
+
+choisir des enchainemenys que l'adversaire va peu a peu retenir
+
+
+notes rapide 
+    jeu de decision avec un roi et differentes faction interne et externe - vampire jouer le méchant - systeme de peuple combiné comme sur smallword
+
+
+    {
+        races : 
+            squellettes
+            vampires
+            goblins
+            orcs
+            trolls
+            nains
+            loups garous
+            géants
+            hommes rats
+
+        milieux :
+            plaines
+            forets
+            volcan
+            montagne
+            marécages
+            terres désolées
+            criques
+            toundra
+            desert
+            
+
+    }
+
+
+
+XCOM LIKE piates 
+port 
+bateau 
+expedition 
+améliorations 
+bateau = vaisseau dans xcom 
+
+chateau avec des salles a ameliiorer , des complots des sièges de baron a roi, emposonnement des puits sapeur trebuchets, gardes, pnj qu'on peut affecter a des postes.
+machicouli machine de siege
+
+kingdom le jeu 
+
+Le jeu des expeditions, carte généré de manière aléatoire
+v1 : trouver un trésor 
+    parcourir la carte jusqu'au tresor
+    ressources : bouffe, moral, etat du bateau
+    
+
+idées : 
+    encyclopédie
+    bateau customisable
+    pnj recrutable
+
+
+
+
+
+
+City builder
+
+chaine de production pour fabriquer des orcs des armes pour se battre contre des armées qui arrivent 
+
+idée de batiments : 
+    ferme a goblins, orcs etc.. 
+    mine de fer et autres
+    fabrique d'arme
+    academie de formation
+    tour de guet pour connaitre la force de l'ennemi et quand il arrive
+
+
+V1 : 
+    pouvoir construire un batiment qui produit du bois, puis une scierie pour des planches
+    une fabrique d'arme : récupère le bois pour faire des batons / massue
+    une ferme a gobelin qui requière de la nourriture / des ames / des corprs / des prisonniers pour créer des gobelins
+    une armurerie pour equiper le gobelin
+    un camp de guerre pour stocker le gobelin avant la bataille 
+
+
+    Resssources : 
+        bois
+        planches
+        massues
+        gobelin (rang 0) / gobelin armé (rang1)
+        prisonniers
+        viandes
+        or ?
+        ouvriers ?
+
+        ouvrier en quantité limité donc batiments limités 
+
+    batiments : 
+    Cabane bûcheron :bois
+    scierie : -bois +planches
+    Camps de raid / Fouilleur de champ de batailles : +prisonniers
+    Camp de chasse : +viande
+    Ferme a gobelin : -viande -prisonnier +gobelin nu
+    Forge : -bois +massue
+    armurerie : -massue -gobelin nu + gobelin armé
+    camp de guerre :  -viande * gobelins =  stock les troupes
+
+
+
+
+    La bataille : 
+        une annonce une minute avant et on va calculer la puissance des troupes dans les camps de gurre si > aux ennemi alors c'est gagné 
+
+
+    Visuel : 
+        soit aucun = a la paperclip 
+        soit on peut essayer 2D avec des cases et des chemins
+
+
+
+
+
+
+
+F0EAD2
+DDE5B6
+ADC178
+A98467
+6c584c

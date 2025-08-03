@@ -1,0 +1,98 @@
+[
+  {
+    "name": "Hiroshi Tanaka",
+    "alias": "The Lightning Crane",
+    "country": "Japan",
+    "height": 1.63,
+    "weight": 50,
+    "wins": 0,
+    "loses":0,
+    "age": 20,
+    "portrait": "res://assets/portraits/hiroshi_tanaka.png",
+    "stance": "orthodox",
+    "fatigue": 0,
+    "stats": {
+      "strength": 10,
+      "stamina": 30,
+      "hp": 20,
+      "speed": 50,
+      "technic": 40
+    }
+  },
+  {
+    "name": "Mike Jackson",
+    "alias": "Big Shot Mike",
+    "country": "USA",
+    "height": 1.85,
+    "weight": 80,
+    "wins": 0,"loses":0,
+    "age": 20,
+    "portrait": "res://assets/portraits/mike_jackson.png",
+    "stance": "orthodox",
+    "fatigue": 0,
+    "stats": {
+      "strength": 50,
+      "stamina": 20,
+      "hp": 60,
+      "speed": 20,
+      "technic": 25
+    }
+  },
+  {
+    "name": "Luis Reyes",
+    "alias": "El Huracán",
+    "country": "Mexico",
+    "height": 1.72,
+    "weight": 60,
+    "wins": 0,"loses":0,
+    "age": 20,
+    "portrait": "res://assets/portraits/luis_reyes.png",
+    "stance": "orthodox",
+    "fatigue": 0,
+    "stats": {
+      "strength": 30,
+      "stamina": 35,
+      "hp": 30,
+      "speed": 50,
+      "technic": 30
+    }
+  },
+  {
+    "name": "Ivan Volkov",
+    "alias": "The Siberian Hammer",
+    "country": "Russia",
+    "height": 1.90,
+    "weight": 90,
+    "wins": 0,"loses":0,
+    "age": 20,
+    "portrait": "res://assets/portraits/ivan_volkov.png",
+    "stance": "southpaw",
+    "fatigue": 0,
+    "stats": {
+      "strength": 45,
+      "stamina": 15,
+      "hp": 100,
+      "speed": 10,
+      "technic": 25
+    }
+  },
+  {
+    "name": "Ernesto Herrera",
+    "alias": "El Maestro",
+    "country": "Cuba",
+    "height": 1.82,
+    "weight": 70,
+    "wins": 0,"loses":0,
+    "age": 20,
+    "portrait": "res://assets/portraits/ernesto_herrera.png",
+    "stance": "orthodox",
+    "fatigue": 0,
+    "stats": {
+      "strength": 30,
+      "stamina": 30,
+      "hp": 35,
+      "speed": 30,
+      "technic": 35
+    }
+  }
+]

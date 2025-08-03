@@ -1,0 +1,146 @@
+[gd_scene load_steps=8 format=3 uid="uid://dswnniohgdy1b"]
+
+[ext_resource type="Texture2D" uid="uid://bx53f44ehthl6" path="res://assets/portraits/hiroshi_tanaka.png" id="1_m5jcx"]
+[ext_resource type="FontFile" uid="uid://vp1knco0la0y" path="res://assets/fonts/BadComic-Regular.ttf" id="2_gqwtg"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ha71x"]
+bg_color = Color(0.878431, 0.254902, 0.235294, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4saje"]
+bg_color = Color(0.168627, 0.32549, 0.560784, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pjrs5"]
+bg_color = Color(0, 0.521569, 0.207843, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qob7b"]
+bg_color = Color(0.882353, 0.827451, 0.219608, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3bci7"]
+bg_color = Color(0.678431, 0.278431, 0.878431, 1)
+
+[node name="FightStats" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 1.0
+offset_right = -731.0
+offset_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Portrait" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -77.5
+offset_right = 77.5
+offset_bottom = 213.0
+grow_horizontal = 2
+texture = ExtResource("1_m5jcx")
+expand_mode = 1
+
+[node name="Panel" type="Panel" parent="Portrait"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -434.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="LabelStr" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 6
+theme_override_fonts/font = ExtResource("2_gqwtg")
+theme_override_font_sizes/font_size = 20
+text = "STRENGTH"
+horizontal_alignment = 1
+vertical_alignment = 1
+uppercase = true
+
+[node name="BarStr" type="ProgressBar" parent="VBoxContainer"]
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 2
+size_flags_vertical = 2
+theme_override_styles/background = SubResource("StyleBoxFlat_ha71x")
+show_percentage = false
+
+[node name="LabelSta" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 6
+theme_override_fonts/font = ExtResource("2_gqwtg")
+theme_override_font_sizes/font_size = 20
+text = "Stamina"
+horizontal_alignment = 1
+vertical_alignment = 1
+uppercase = true
+
+[node name="BarSta" type="ProgressBar" parent="VBoxContainer"]
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 2
+size_flags_vertical = 2
+theme_override_styles/background = SubResource("StyleBoxFlat_4saje")
+show_percentage = false
+
+[node name="LabelHp" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 6
+theme_override_fonts/font = ExtResource("2_gqwtg")
+theme_override_font_sizes/font_size = 20
+text = "HP"
+horizontal_alignment = 1
+vertical_alignment = 1
+uppercase = true
+
+[node name="BarHp" type="ProgressBar" parent="VBoxContainer"]
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 2
+size_flags_vertical = 2
+theme_override_styles/background = SubResource("StyleBoxFlat_pjrs5")
+show_percentage = false
+
+[node name="LabelSpd" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 6
+theme_override_fonts/font = ExtResource("2_gqwtg")
+theme_override_font_sizes/font_size = 20
+text = "Speed"
+horizontal_alignment = 1
+vertical_alignment = 1
+uppercase = true
+
+[node name="BarSpd" type="ProgressBar" parent="VBoxContainer"]
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 2
+size_flags_vertical = 2
+theme_override_styles/background = SubResource("StyleBoxFlat_qob7b")
+show_percentage = false
+
+[node name="LabelTec" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 6
+theme_override_fonts/font = ExtResource("2_gqwtg")
+theme_override_font_sizes/font_size = 20
+text = "Technique"
+horizontal_alignment = 1
+vertical_alignment = 1
+uppercase = true
+
+[node name="BarTec" type="ProgressBar" parent="VBoxContainer"]
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 2
+size_flags_vertical = 2
+theme_override_styles/background = SubResource("StyleBoxFlat_3bci7")
+show_percentage = false

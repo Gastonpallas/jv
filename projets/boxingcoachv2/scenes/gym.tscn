@@ -1,0 +1,24 @@
+[gd_scene load_steps=3 format=3 uid="uid://hsppvqmfmv4s"]
+
+[ext_resource type="Texture2D" uid="uid://cnwqvheasqstt" path="res://assets/images/gym-inside.png" id="1_4duur"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_5hyia"]
+texture = ExtResource("1_4duur")
+modulate_color = Color(0.817521, 0.817521, 0.817521, 1)
+
+[node name="Gym" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_5hyia")

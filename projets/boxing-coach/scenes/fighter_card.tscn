@@ -1,0 +1,122 @@
+[gd_scene load_steps=7 format=3 uid="uid://d0e070eycooy"]
+
+[ext_resource type="FontFile" uid="uid://vp1knco0la0y" path="res://assets/fonts/BadComic-Regular.ttf" id="1_1chre"]
+[ext_resource type="Script" uid="uid://8ianf5bkt1gb" path="res://scripts/fighter_card.gd" id="1_1q8iw"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_1q8iw"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1chre"]
+bg_color = Color(0.687215, 0.687215, 0.687214, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+shadow_size = 5
+shadow_offset = Vector2(0, 5)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1q8iw"]
+bg_color = Color(0.999987, 0.305039, 0.38677, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+shadow_size = 5
+shadow_offset = Vector2(0, 5)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jfm7q"]
+bg_color = Color(0.929715, 0.929715, 0.929715, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+shadow_size = 5
+shadow_offset = Vector2(0, 5)
+
+[node name="FighterCard" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 392.0
+offset_top = 103.0
+offset_right = -419.0
+offset_bottom = -171.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+script = ExtResource("1_1q8iw")
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -169.0
+offset_top = -189.0
+offset_right = 169.0
+offset_bottom = 189.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("1_1chre")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_1q8iw")
+theme_override_styles/hover = SubResource("StyleBoxFlat_1chre")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_1q8iw")
+theme_override_styles/normal = SubResource("StyleBoxFlat_jfm7q")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Button"]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -174.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="NameLabel" type="Label" parent="Button/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("1_1chre")
+theme_override_font_sizes/font_size = 26
+text = "NAme : "
+uppercase = true
+
+[node name="HeightLabel" type="Label" parent="Button/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("1_1chre")
+theme_override_font_sizes/font_size = 26
+text = "Height :"
+uppercase = true
+
+[node name="WeightLabel" type="Label" parent="Button/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("1_1chre")
+theme_override_font_sizes/font_size = 26
+text = "Weight"
+uppercase = true
+
+[node name="RecordLabel" type="Label" parent="Button/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("1_1chre")
+theme_override_font_sizes/font_size = 26
+text = "Record :"
+uppercase = true
+
+[node name="Portrait" type="TextureRect" parent="Button"]
+custom_minimum_size = Vector2(200, 150)
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -110.0
+offset_right = 110.0
+offset_bottom = 200.0
+grow_horizontal = 2
+expand_mode = 3
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

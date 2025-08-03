@@ -1,0 +1,14 @@
+[gd_scene load_steps=4 format=3 uid="uid://c6ff7quypl6nt"]
+
+[ext_resource type="Script" uid="uid://b6iyb7hwqoje3" path="res://scripts/buildings/lumber_camp.gd" id="1_i1fr2"]
+[ext_resource type="Texture2D" uid="uid://bq23wbccnghyd" path="res://assets/images/buildings/LumberCamp_64x64.png" id="2_i1fr2"]
+[ext_resource type="Script" uid="uid://di5k65g15kgi" path="res://scripts/buildings/jauge.gd" id="3_mc5mr"]
+
+[node name="LumberCamp" type="Node2D"]
+script = ExtResource("1_i1fr2")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_i1fr2")
+
+[node name="Jauge" type="Node2D" parent="."]
+script = ExtResource("3_mc5mr")

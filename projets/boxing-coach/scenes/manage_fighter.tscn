@@ -1,0 +1,216 @@
+[gd_scene load_steps=11 format=3 uid="uid://dmjwc1ja1122q"]
+
+[ext_resource type="Script" uid="uid://cuq1dkkv0k2u7" path="res://scripts/manage_fighter.gd" id="1_1oo1i"]
+[ext_resource type="Texture2D" uid="uid://uh3fwsy8cvli" path="res://assets/images/ring.png" id="1_14ojr"]
+[ext_resource type="Texture2D" uid="uid://blsnd7rby45et" path="res://assets/portraits/mike_jackson.png" id="3_72dga"]
+[ext_resource type="FontFile" uid="uid://vp1knco0la0y" path="res://assets/fonts/BadComic-Regular.ttf" id="4_jhk4a"]
+[ext_resource type="PackedScene" uid="uid://cbc74sox3ylkv" path="res://scenes/radar_chart.tscn" id="5_tvldp"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_1oo1i"]
+texture = ExtResource("1_14ojr")
+modulate_color = Color(0.564962, 0.564962, 0.564962, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tvldp"]
+bg_color = Color(0.854912, 0.827547, 0.82748, 1)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_tvldp"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_47qol"]
+bg_color = Color(0.371803, 0.00621317, 0.0803069, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+corner_detail = 18
+expand_margin_left = 10.0
+expand_margin_top = 10.0
+expand_margin_right = 10.0
+expand_margin_bottom = 10.0
+shadow_size = 5
+shadow_offset = Vector2(0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jamw5"]
+bg_color = Color(0.501961, 0.0117647, 0.121569, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+corner_detail = 18
+expand_margin_left = 10.0
+expand_margin_top = 10.0
+expand_margin_right = 10.0
+expand_margin_bottom = 10.0
+shadow_size = 5
+shadow_offset = Vector2(0, 1)
+
+[node name="ManageFighter" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_1oo1i")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_1oo1i")
+
+[node name="RadarChart" parent="." instance=ExtResource("5_tvldp")]
+position = Vector2(934, 135)
+
+[node name="ButtonReturn" type="Button" parent="."]
+unique_name_in_owner = true
+layout_mode = 1
+offset_right = 127.0
+offset_bottom = 81.0
+text = "Back"
+
+[node name="Portrait" type="TextureRect" parent="."]
+custom_minimum_size = Vector2(250, 250)
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -125.0
+offset_top = 9.0
+offset_right = 125.0
+offset_bottom = 259.0
+grow_horizontal = 2
+texture = ExtResource("3_72dga")
+expand_mode = 1
+
+[node name="fond" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -385.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_styles/panel = SubResource("StyleBoxFlat_tvldp")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="fond"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 50
+
+[node name="VBoxContainer" type="VBoxContainer" parent="fond/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 6
+
+[node name="NameLabel" type="Label" parent="fond/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("4_jhk4a")
+theme_override_font_sizes/font_size = 26
+text = "Name : "
+uppercase = true
+
+[node name="CountryLabel" type="Label" parent="fond/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("4_jhk4a")
+theme_override_font_sizes/font_size = 26
+text = "Country : "
+uppercase = true
+
+[node name="AgeLabel" type="Label" parent="fond/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("4_jhk4a")
+theme_override_font_sizes/font_size = 26
+text = "Age :"
+uppercase = true
+
+[node name="HeightLabel" type="Label" parent="fond/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("4_jhk4a")
+theme_override_font_sizes/font_size = 26
+text = "Height :"
+uppercase = true
+
+[node name="WeightLabel" type="Label" parent="fond/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("4_jhk4a")
+theme_override_font_sizes/font_size = 26
+text = "Weight : "
+uppercase = true
+
+[node name="RecordLabel" type="Label" parent="fond/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("4_jhk4a")
+theme_override_font_sizes/font_size = 26
+text = "Record :"
+uppercase = true
+
+[node name="VBoxContainerStats" type="VBoxContainer" parent="fond/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 6
+
+[node name="StrenghtLabel" type="Label" parent="fond/HBoxContainer/VBoxContainerStats"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("4_jhk4a")
+theme_override_font_sizes/font_size = 26
+uppercase = true
+
+[node name="StaminaLabel" type="Label" parent="fond/HBoxContainer/VBoxContainerStats"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("4_jhk4a")
+theme_override_font_sizes/font_size = 26
+uppercase = true
+
+[node name="HPLabel" type="Label" parent="fond/HBoxContainer/VBoxContainerStats"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("4_jhk4a")
+theme_override_font_sizes/font_size = 26
+uppercase = true
+
+[node name="SpeedLabel" type="Label" parent="fond/HBoxContainer/VBoxContainerStats"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("4_jhk4a")
+theme_override_font_sizes/font_size = 26
+uppercase = true
+
+[node name="TechnicLabel" type="Label" parent="fond/HBoxContainer/VBoxContainerStats"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("4_jhk4a")
+theme_override_font_sizes/font_size = 26
+uppercase = true
+
+[node name="VBoxContainer3" type="VBoxContainer" parent="fond/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 6
+
+[node name="FightButton" type="Button" parent="fond/HBoxContainer/VBoxContainer3"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 6
+theme_override_fonts/font = ExtResource("4_jhk4a")
+theme_override_font_sizes/font_size = 30
+theme_override_styles/focus = SubResource("StyleBoxEmpty_tvldp")
+theme_override_styles/hover = SubResource("StyleBoxFlat_47qol")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_jamw5")
+theme_override_styles/normal = SubResource("StyleBoxFlat_jamw5")
+text = "FIGHT"
+
+[connection signal="pressed" from="ButtonReturn" to="." method="_on_button_return_pressed"]
+[connection signal="pressed" from="fond/HBoxContainer/VBoxContainer3/FightButton" to="." method="_on_fight_button_pressed"]

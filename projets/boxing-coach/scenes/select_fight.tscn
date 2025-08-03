@@ -1,0 +1,92 @@
+[gd_scene load_steps=7 format=3 uid="uid://bfubbu8lo2xp1"]
+
+[ext_resource type="Script" uid="uid://4pentbbmmy68" path="res://scripts/select_fight.gd" id="1_uc6lt"]
+[ext_resource type="Texture2D" uid="uid://cbletp1utaw5f" path="res://assets/images/hall.png" id="2_aes5j"]
+[ext_resource type="PackedScene" uid="uid://chx3wudkvthsd" path="res://scenes/opp_card.tscn" id="3_81lhi"]
+[ext_resource type="FontFile" uid="uid://vp1knco0la0y" path="res://assets/fonts/BadComic-Regular.ttf" id="4_ecusq"]
+[ext_resource type="Texture2D" uid="uid://blsnd7rby45et" path="res://assets/portraits/mike_jackson.png" id="5_ecusq"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_81lhi"]
+texture = ExtResource("2_aes5j")
+modulate_color = Color(0.564962, 0.564962, 0.564962, 1)
+
+[node name="SelectFight" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_uc6lt")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_81lhi")
+
+[node name="Label" type="Label" parent="Panel"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -269.0
+offset_right = 269.0
+offset_bottom = 61.0
+grow_horizontal = 2
+theme_override_fonts/font = ExtResource("4_ecusq")
+theme_override_font_sizes/font_size = 50
+text = "Choose your Opponent"
+
+[node name="ButtonReturn" type="Button" parent="Panel"]
+layout_mode = 0
+offset_right = 127.0
+offset_bottom = 81.0
+text = "Back"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Panel"]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 16.0
+offset_top = -422.0
+offset_right = -19.0
+offset_bottom = -52.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_constants/separation = 40
+
+[node name="OppCard1" parent="Panel/HBoxContainer" instance=ExtResource("3_81lhi")]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 5
+
+[node name="OppCard2" parent="Panel/HBoxContainer" instance=ExtResource("3_81lhi")]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 5
+
+[node name="OppCard3" parent="Panel/HBoxContainer" instance=ExtResource("3_81lhi")]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 5
+
+[node name="Portrait" type="TextureRect" parent="Panel"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = 395.0
+offset_top = -1.0
+offset_right = 576.0
+offset_bottom = 180.0
+grow_horizontal = 2
+texture = ExtResource("5_ecusq")
+expand_mode = 4
+
+[connection signal="pressed" from="Panel/ButtonReturn" to="." method="_on_button_return_pressed"]

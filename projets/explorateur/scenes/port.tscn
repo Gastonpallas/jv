@@ -1,0 +1,35 @@
+[gd_scene load_steps=5 format=3 uid="uid://dipafnr8r2yi7"]
+
+[ext_resource type="Script" uid="uid://b08lmreirlls3" path="res://scripts/port.gd" id="1_opbk4"]
+[ext_resource type="Texture2D" uid="uid://bnj6o5kw51q1g" path="res://assets/images/port.webp" id="1_oyquu"]
+[ext_resource type="PackedScene" uid="uid://bxiybvux05866" path="res://scenes/elements/bouton.tscn" id="2_4bvp8"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_4bvp8"]
+texture = ExtResource("1_oyquu")
+modulate_color = Color(0.366595, 0.366595, 0.366595, 1)
+
+[node name="Port" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_opbk4")
+
+[node name="Fond" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_4bvp8")
+
+[node name="Expedition" parent="." instance=ExtResource("2_4bvp8")]
+layout_mode = 1
+offset_left = -159.5
+offset_right = 159.5
+text = "Start Expedition"
+
+[connection signal="pressed" from="Expedition" to="." method="_on_expedition_pressed"]

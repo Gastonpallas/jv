@@ -1,0 +1,61 @@
+City builder
+
+chaine de production pour fabriquer des orcs des armes pour se battre contre des armées qui arrivent 
+
+idée de batiments : 
+    ferme a goblins, orcs etc.. 
+    mine de fer et autres
+    fabrique d'arme
+    academie de formation
+    tour de guet pour connaitre la force de l'ennemi et quand il arrive
+
+
+V1 : 
+    pouvoir construire un batiment qui produit du bois, puis une scierie pour des planches
+    une fabrique d'arme : récupère le bois pour faire des batons / massue
+    une ferme a gobelin qui requière de la nourriture / des ames / des corprs / des prisonniers pour créer des gobelins
+    une armurerie pour equiper le gobelin
+    un camp de guerre pour stocker le gobelin avant la bataille 
+
+
+    Resssources : 
+        bois
+        planches
+        massues
+        gobelin (rang 0) / gobelin armé (rang1)
+        prisonniers
+        viandes
+        or ?
+        ouvriers ?
+
+        ouvrier en quantité limité donc batiments limités 
+
+    batiments : 
+    Cabane bûcheron :bois
+    scierie : -bois +planches
+    Camps de raid / Fouilleur de champ de batailles : +prisonniers
+    Camp de chasse : +viande
+    Ferme a gobelin : -viande -prisonnier +gobelin nu
+    Forge : -bois +massue
+    armurerie : -massue -gobelin nu + gobelin armé
+    camp de guerre :  -viande * gobelins =  stock les troupes
+
+
+
+
+    La bataille : 
+        une annonce une minute avant et on va calculer la puissance des troupes dans les camps de gurre si > aux ennemi alors c'est gagné 
+
+
+    Visuel : 
+        soit aucun = a la paperclip 
+        soit on peut essayer 2D avec des cases et des chemins
+
+
+
+
+F0EAD2
+DDE5B6
+ADC178
+A98467
+6c584c
