@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=4 uid="uid://dobpksj7rxvws"]
+[gd_scene load_steps=12 format=4 uid="uid://dobpksj7rxvws"]
 
 [ext_resource type="Script" uid="uid://ch1xrku7kthx8" path="res://scripts/main.gd" id="1_o5qli"]
 [ext_resource type="Script" uid="uid://cbpc2mbwxd77t" path="res://scripts/game_state.gd" id="2_0wfyh"]
@@ -6,6 +6,7 @@
 [ext_resource type="Script" uid="uid://bam1vwwdvf6qe" path="res://scripts/ui.gd" id="3_sugp2"]
 [ext_resource type="PackedScene" uid="uid://c6ff7quypl6nt" path="res://scenes/buildings/LumberCamp.tscn" id="4_jyhfs"]
 [ext_resource type="Script" uid="uid://bml3ksebyy2t" path="res://scripts/grid.gd" id="5_tbgi4"]
+[ext_resource type="Script" uid="uid://okwvr8lec2h4" path="res://scripts/cam.gd" id="6_85g3d"]
 [ext_resource type="Script" uid="uid://788x170jbv5u" path="res://scripts/construction_menu.gd" id="6_tefeu"]
 [ext_resource type="PackedScene" uid="uid://p58ymfvoa3v7" path="res://scenes/elements/custom_button.tscn" id="7_o6xl0"]
 
@@ -62,6 +63,9 @@ script = ExtResource("2_0wfyh")
 [node name="Grid" type="Node2D" parent="."]
 script = ExtResource("5_tbgi4")
 lumber_camp_scene = ExtResource("4_jyhfs")
+
+[node name="Cam" type="Camera2D" parent="."]
+script = ExtResource("6_85g3d")
 
 [node name="UI" type="CanvasLayer" parent="."]
 script = ExtResource("3_sugp2")
