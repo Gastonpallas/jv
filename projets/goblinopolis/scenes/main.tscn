@@ -64,6 +64,10 @@ script = ExtResource("2_0wfyh")
 script = ExtResource("5_tbgi4")
 lumber_camp_scene = ExtResource("4_jyhfs")
 
+[node name="Preview" type="Node2D" parent="Grid"]
+
+[node name="Sprite2D" type="Sprite2D" parent="Grid/Preview"]
+
 [node name="Cam" type="Camera2D" parent="."]
 script = ExtResource("6_85g3d")
 
