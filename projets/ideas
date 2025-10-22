@@ -217,3 +217,39 @@ DDE5B6
 ADC178
 A98467
 6c584c
+
+
+
+
+
+
+
+
+
+--------------
+
+
+terrain, Or
+
+Cabane de bucheron : 1 terrain -> 2 bois
+scierie : 1 bois -> 1 planche de bois 
+Ferme a gobelin : -viande -prisonnier +gobelin nu
+Camps de raid : & terrain -> 1 prisonnier
+Ferme a goblin : 1 prisonnier -> goblin 
+
+goblin stats : 1 pv, 1 moral, 1 atq 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

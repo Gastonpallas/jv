@@ -1,0 +1,52 @@
+[gd_scene load_steps=2 format=3 uid="uid://dgk81kh6dgkkh"]
+
+[ext_resource type="Script" uid="uid://ccigc1m2jl8cc" path="res://scripts/Game.gd" id="1_ibkli"]
+
+[node name="Game" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ibkli")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Label" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+text = "Production"
+
+[node name="Header" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="Name" type="Label" parent="VBoxContainer/Header"]
+custom_minimum_size = Vector2(160, 0)
+layout_mode = 2
+text = "Name"
+
+[node name="Prod" type="Label" parent="VBoxContainer/Header"]
+custom_minimum_size = Vector2(110, 0)
+layout_mode = 2
+text = "Prod"
+
+[node name="Dem" type="Label" parent="VBoxContainer/Header"]
+custom_minimum_size = Vector2(110, 0)
+layout_mode = 2
+text = "Dem"
+
+[node name="Balance" type="Label" parent="VBoxContainer/Header"]
+custom_minimum_size = Vector2(110, 0)
+layout_mode = 2
+text = "Balance"
+
+[node name="Qty" type="Label" parent="VBoxContainer/Header"]
+custom_minimum_size = Vector2(80, 0)
+layout_mode = 2
+text = "Quantity"
+
+[node name="Rows" type="VBoxContainer" parent="VBoxContainer"]
+layout_mode = 2

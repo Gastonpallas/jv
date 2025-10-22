@@ -1,0 +1,56 @@
+[gd_scene load_steps=6 format=3 uid="uid://dck4biqro8pvp"]
+
+[ext_resource type="Texture2D" uid="uid://dh441nbsuxyfc" path="res://assets/images/gobelins-fond.png" id="1_0ykhv"]
+[ext_resource type="Script" uid="uid://bv04it2xx3drt" path="res://scripts/MainMenu.gd" id="1_ow34m"]
+[ext_resource type="FontFile" uid="uid://bixjktdxrlprq" path="res://assets/fonts/PermanentMarker-Regular.ttf" id="2_2wh52"]
+[ext_resource type="PackedScene" uid="uid://d0pxrwcvx1dwm" path="res://scenes/elements/CustomButton.tscn" id="3_2wh52"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ow34m"]
+texture = ExtResource("1_0ykhv")
+modulate_color = Color(0.617455, 0.617455, 0.617455, 1)
+
+[node name="MainMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ow34m")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_ow34m")
+
+[node name="Label" type="Label" parent="Panel"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -50.5
+offset_top = 169.0
+offset_right = 50.5
+offset_bottom = 192.0
+grow_horizontal = 2
+theme_override_fonts/font = ExtResource("2_2wh52")
+theme_override_font_sizes/font_size = 50
+text = "Goblino Polis"
+
+[node name="CustomButton" parent="Panel" instance=ExtResource("3_2wh52")]
+layout_mode = 1
+anchors_preset = 7
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -264.0
+offset_right = 105.0
+offset_bottom = -151.0
+grow_vertical = 0
+theme_override_font_sizes/font_size = 50
+text = "START"
+
+[connection signal="pressed" from="Panel/CustomButton" to="." method="_on_custom_button_pressed"]

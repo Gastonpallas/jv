@@ -98,10 +98,16 @@ layout_mode = 2
 toggle_mode = true
 text = "Bucheron"
 
+[node name="Button2" parent="UI/ConstructionMenu" instance=ExtResource("7_o6xl0")]
+layout_mode = 2
+toggle_mode = true
+text = "Entrepot"
+
 [node name="ButttonDelete" parent="UI/ConstructionMenu" instance=ExtResource("7_o6xl0")]
 layout_mode = 2
 toggle_mode = true
 text = "Détruire"
 
 [connection signal="pressed" from="UI/ConstructionMenu/Button1" to="UI/ConstructionMenu" method="_on_button_1_pressed"]
+[connection signal="pressed" from="UI/ConstructionMenu/Button2" to="UI/ConstructionMenu" method="_on_button_2_pressed"]
 [connection signal="pressed" from="UI/ConstructionMenu/ButttonDelete" to="UI/ConstructionMenu" method="_on_buttton_delete_pressed"]

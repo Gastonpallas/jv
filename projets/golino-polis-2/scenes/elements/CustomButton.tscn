@@ -1,0 +1,37 @@
+[gd_scene load_steps=5 format=3 uid="uid://d0pxrwcvx1dwm"]
+
+[ext_resource type="FontFile" uid="uid://bixjktdxrlprq" path="res://assets/fonts/PermanentMarker-Regular.ttf" id="1_a08v1"]
+[ext_resource type="Script" uid="uid://drkk1o8ov3fg7" path="res://scripts/CustomButton.gd" id="2_0ff6t"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_0ff6t"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_a08v1"]
+bg_color = Color(0.423529, 0.345098, 0.298039, 1)
+corner_radius_top_left = 25
+corner_radius_top_right = 25
+corner_radius_bottom_right = 25
+corner_radius_bottom_left = 25
+
+[node name="CustomButton" type="Button"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -96.0
+offset_top = -82.0
+offset_right = 96.0
+offset_bottom = 82.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_fonts/font = ExtResource("1_a08v1")
+theme_override_font_sizes/font_size = 60
+theme_override_styles/focus = SubResource("StyleBoxEmpty_0ff6t")
+theme_override_styles/hover = SubResource("StyleBoxFlat_a08v1")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_a08v1")
+theme_override_styles/normal = SubResource("StyleBoxFlat_a08v1")
+text = "test"
+script = ExtResource("2_0ff6t")
+metadata/_edit_use_anchors_ = true

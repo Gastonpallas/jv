@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://bdkm8cj7l5pvw" path="res://assets/images/gobelins-fond.png" id="1_ekxnf"]
 [ext_resource type="Script" uid="uid://chggoj3sfwyuc" path="res://scripts/main_menu.gd" id="1_wu84c"]
-[ext_resource type="FontFile" uid="uid://bixjktdxrlprq" path="res://assets/fonts/PermanentMarker-Regular.ttf" id="2_bqqt6"]
+[ext_resource type="FontFile" path="res://assets/fonts/PermanentMarker-Regular.ttf" id="2_bqqt6"]
 [ext_resource type="PackedScene" uid="uid://p58ymfvoa3v7" path="res://scenes/elements/custom_button.tscn" id="3_bqqt6"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_wu84c"]

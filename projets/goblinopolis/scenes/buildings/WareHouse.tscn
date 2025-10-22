@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://cukr5gtgxbtn1"]
+
+[ext_resource type="Script" path="res://scripts/buildings/ware_house.gd" id="1_xkalh"]
+[ext_resource type="Texture2D" path="res://assets/images/buildings/sprite_entrepot_64x64.png" id="2_gf0vs"]
+
+[node name="WareHouse" type="Node2D"]
+script = ExtResource("1_xkalh")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_gf0vs")

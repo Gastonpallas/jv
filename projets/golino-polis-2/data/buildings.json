@@ -1,0 +1,4 @@
+{"buildings":[
+  {"id":"lumberjack","name":"Lumberjack","rates":{"wood":2.0}},
+  {"id":"sawmill","name":"Sawmill","rates":{"wood":-2.0,"plank":2.0}}
+]}
