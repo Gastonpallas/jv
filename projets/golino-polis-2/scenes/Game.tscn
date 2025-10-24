@@ -11,42 +11,87 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_ibkli")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="."]
+[node name="VBoxContainerBuildings" type="VBoxContainer" parent="."]
 layout_mode = 0
 offset_right = 40.0
 offset_bottom = 40.0
 
-[node name="Label" type="Label" parent="VBoxContainer"]
+[node name="Label" type="Label" parent="VBoxContainerBuildings"]
 layout_mode = 2
-text = "Production"
+text = "Buildings"
 
-[node name="Header" type="HBoxContainer" parent="VBoxContainer"]
+[node name="Header" type="HBoxContainer" parent="VBoxContainerBuildings"]
 layout_mode = 2
 
-[node name="Name" type="Label" parent="VBoxContainer/Header"]
-custom_minimum_size = Vector2(160, 0)
+[node name="Name" type="Label" parent="VBoxContainerBuildings/Header"]
+custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
-text = "Name"
+text = "Building Name"
 
-[node name="Prod" type="Label" parent="VBoxContainer/Header"]
+[node name="Prod" type="Label" parent="VBoxContainerBuildings/Header"]
 custom_minimum_size = Vector2(110, 0)
 layout_mode = 2
 text = "Prod"
 
-[node name="Dem" type="Label" parent="VBoxContainer/Header"]
+[node name="Dem" type="Label" parent="VBoxContainerBuildings/Header"]
 custom_minimum_size = Vector2(110, 0)
 layout_mode = 2
 text = "Dem"
 
-[node name="Balance" type="Label" parent="VBoxContainer/Header"]
+[node name="Cost" type="Label" parent="VBoxContainerBuildings/Header"]
 custom_minimum_size = Vector2(110, 0)
 layout_mode = 2
-text = "Balance"
+text = "Cost"
 
-[node name="Qty" type="Label" parent="VBoxContainer/Header"]
+[node name="Qty" type="Label" parent="VBoxContainerBuildings/Header"]
 custom_minimum_size = Vector2(80, 0)
 layout_mode = 2
 text = "Quantity"
 
-[node name="Rows" type="VBoxContainer" parent="VBoxContainer"]
+[node name="Rows" type="VBoxContainer" parent="VBoxContainerBuildings"]
+layout_mode = 2
+
+[node name="VBoxContainerRessources2" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_top = -27.0
+offset_right = 586.0
+offset_bottom = 27.0
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="VBoxContainerRessources2"]
+layout_mode = 2
+text = "Ressources"
+
+[node name="Header" type="HBoxContainer" parent="VBoxContainerRessources2"]
+layout_mode = 2
+
+[node name="Name" type="Label" parent="VBoxContainerRessources2/Header"]
+custom_minimum_size = Vector2(160, 0)
+layout_mode = 2
+text = "Ressource Name"
+
+[node name="Prod" type="Label" parent="VBoxContainerRessources2/Header"]
+custom_minimum_size = Vector2(110, 0)
+layout_mode = 2
+text = "Prod"
+
+[node name="Dem" type="Label" parent="VBoxContainerRessources2/Header"]
+custom_minimum_size = Vector2(110, 0)
+layout_mode = 2
+text = "Dem"
+
+[node name="Balance" type="Label" parent="VBoxContainerRessources2/Header"]
+custom_minimum_size = Vector2(110, 0)
+layout_mode = 2
+text = "Balance"
+
+[node name="Qty" type="Label" parent="VBoxContainerRessources2/Header"]
+custom_minimum_size = Vector2(80, 0)
+layout_mode = 2
+text = "Quantity"
+
+[node name="Rows" type="VBoxContainer" parent="VBoxContainerRessources2"]
 layout_mode = 2
