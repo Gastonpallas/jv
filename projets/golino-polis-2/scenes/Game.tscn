@@ -51,7 +51,7 @@ text = "Quantity"
 [node name="Rows" type="VBoxContainer" parent="VBoxContainerBuildings"]
 layout_mode = 2
 
-[node name="VBoxContainerRessources2" type="VBoxContainer" parent="."]
+[node name="VBoxContainerRessources" type="VBoxContainer" parent="."]
 layout_mode = 1
 anchors_preset = 4
 anchor_top = 0.5
@@ -61,37 +61,37 @@ offset_right = 586.0
 offset_bottom = 27.0
 grow_vertical = 2
 
-[node name="Label" type="Label" parent="VBoxContainerRessources2"]
+[node name="Label" type="Label" parent="VBoxContainerRessources"]
 layout_mode = 2
 text = "Ressources"
 
-[node name="Header" type="HBoxContainer" parent="VBoxContainerRessources2"]
+[node name="Header" type="HBoxContainer" parent="VBoxContainerRessources"]
 layout_mode = 2
 
-[node name="Name" type="Label" parent="VBoxContainerRessources2/Header"]
-custom_minimum_size = Vector2(160, 0)
+[node name="Name" type="Label" parent="VBoxContainerRessources/Header"]
+custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
 text = "Ressource Name"
 
-[node name="Prod" type="Label" parent="VBoxContainerRessources2/Header"]
+[node name="Prod" type="Label" parent="VBoxContainerRessources/Header"]
 custom_minimum_size = Vector2(110, 0)
 layout_mode = 2
 text = "Prod"
 
-[node name="Dem" type="Label" parent="VBoxContainerRessources2/Header"]
+[node name="Dem" type="Label" parent="VBoxContainerRessources/Header"]
 custom_minimum_size = Vector2(110, 0)
 layout_mode = 2
 text = "Dem"
 
-[node name="Balance" type="Label" parent="VBoxContainerRessources2/Header"]
+[node name="Balance" type="Label" parent="VBoxContainerRessources/Header"]
 custom_minimum_size = Vector2(110, 0)
 layout_mode = 2
 text = "Balance"
 
-[node name="Qty" type="Label" parent="VBoxContainerRessources2/Header"]
+[node name="Qty" type="Label" parent="VBoxContainerRessources/Header"]
 custom_minimum_size = Vector2(80, 0)
 layout_mode = 2
 text = "Quantity"
 
-[node name="Rows" type="VBoxContainer" parent="VBoxContainerRessources2"]
+[node name="Rows" type="VBoxContainer" parent="VBoxContainerRessources"]
 layout_mode = 2

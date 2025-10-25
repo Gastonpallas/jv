@@ -1,0 +1,28 @@
+[gd_scene load_steps=2 format=3 uid="uid://dtj7e3pryaet5"]
+
+[ext_resource type="Script" uid="uid://cn6qdc27ayutq" path="res://scripts/RessourceRow.gd" id="1_awech"]
+
+[node name="RessourceRow" type="HBoxContainer"]
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_awech")
+
+[node name="Name" type="Label" parent="."]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+
+[node name="Prod" type="Label" parent="."]
+custom_minimum_size = Vector2(110, 0)
+layout_mode = 2
+
+[node name="Dem" type="Label" parent="."]
+custom_minimum_size = Vector2(110, 0)
+layout_mode = 2
+
+[node name="Balance" type="Label" parent="."]
+custom_minimum_size = Vector2(110, 0)
+layout_mode = 2
+
+[node name="Qty" type="Label" parent="."]
+custom_minimum_size = Vector2(80, 0)
+layout_mode = 2
