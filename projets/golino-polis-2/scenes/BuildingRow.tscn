@@ -1,6 +1,10 @@
-[gd_scene load_steps=2 format=3 uid="uid://d2ts5ok1f02ob"]
+[gd_scene load_steps=4 format=3 uid="uid://d2ts5ok1f02ob"]
 
 [ext_resource type="Script" uid="uid://bvqh1310c3aic" path="res://scripts/BuildingRow.gd" id="1_qjr8r"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_qjr8r"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_aou2r"]
 
 [node name="BuildingRow" type="HBoxContainer"]
 offset_right = 40.0
@@ -26,3 +30,13 @@ layout_mode = 2
 [node name="Qty" type="Label" parent="."]
 custom_minimum_size = Vector2(80, 0)
 layout_mode = 2
+
+[node name="Subtract" type="Button" parent="."]
+layout_mode = 2
+theme_override_styles/focus = SubResource("StyleBoxEmpty_qjr8r")
+text = "-"
+
+[node name="Add" type="Button" parent="."]
+layout_mode = 2
+theme_override_styles/focus = SubResource("StyleBoxEmpty_aou2r")
+text = "+"

@@ -1,4 +1,4 @@
 {"products":[
-  {"id":"wood","name":"Wood","unit":"t/min"},
-  {"id":"plank","name":"Plank","unit":"t/min"}
+  {"id":"wood","name":"Wood"},
+  {"id":"plank","name":"Plank"}
 ]}
