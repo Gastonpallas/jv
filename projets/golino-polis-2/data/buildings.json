@@ -1,4 +1,20 @@
-{"buildings":[
-  {"id":"lumberjack","name":"Lumberjack","rates":{"wood":2.0}},
-  {"id":"sawmill","name":"Sawmill","rates":{"wood":-2.0,"plank":2.0}}
-]}
+{
+  "buildings": [
+    {
+      "id": "lumberjack",
+      "name": "LumberJack",
+      "prod":  { "amount": 2, "unit": "wood" },
+      "dem":   { "amount": 0, "unit": ""   },
+      "cost":  { "amount": 10, "unit": "planks" },
+      "qty": 0
+    },
+    {
+      "id": "sawmill",
+      "name": "Sawmill",
+      "prod":  { "amount": 2, "unit": "planks" },
+      "dem":   { "amount": 2, "unit": "wood"   },
+      "cost":  { "amount": 10, "unit": "planks" },
+      "qty": 0
+    }
+  ]
+}

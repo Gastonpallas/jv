@@ -8,11 +8,60 @@ var ressource_row_scene: PackedScene = preload("res://scenes/RessourceRow.tscn")
 
 
 func _ready() -> void:
-	var row: BuildingRow = building_row_scene.instantiate()
-	rows_building_box.add_child(row)
-	row.set_values("LumberJack", 2.0, "wood", 0.0, "", 10.0, "planks", 1)
+	var data_building := load_json("res://data/buildings.json")
+	var buildings : Variant = data_building.get("buildings", [])
 	
-	var row2: RessourcRow = ressource_row_scene.instantiate()
-	rows_ressource_box.add_child(row2)
-	row2.set_values("Wood", 2.0, 0.0, 2.0, 10)
+	var data_resspurces := load_json("res://data/ressources.json")
+	var ressources : Variant = data_resspurces.get("ressources", [])
+
+	for b in buildings:
+		var row := building_row_scene.instantiate() as BuildingRow
+		rows_building_box.add_child(row)
+
+		var name := str(b.get("name", ""))
+		var prod : Dictionary = b.get("prod", {})
+		var dem  :Dictionary = b.get("dem",  {})
+		var cost :Dictionary = b.get("cost", {})
+		var qty  := int(b.get("qty", 0))
+
+		row.set_values(
+			name,
+			float(prod.get("amount", 0.0)),
+			str(prod.get("unit", "")),
+			float(dem.get("amount", 0.0)),
+			str(dem.get("unit", "")),
+			float(cost.get("amount", 0.0)),
+			str(cost.get("unit", "")),
+			qty
+		)
 	
+	for r in ressources:
+		var row := ressource_row_scene.instantiate() as RessourcRow
+		rows_ressource_box.add_child(row)
+
+		var name := str(r.get("name", ""))
+		var prod := int(r.get("prod", 0))
+		var dem  := int(r.get("dem", 0))
+		var balance := int(r.get("balance", 0))
+		var qty  := int(r.get("qty", 0))
+
+		row.set_values(
+			name,
+			prod,
+			dem,
+			balance,
+			qty
+		)
+	
+func load_json(path: String) -> Dictionary:
+	if not FileAccess.file_exists(path):
+		push_error("Fichier introuvable: %s" % path)
+		return {}
+	var f := FileAccess.open(path, FileAccess.READ)
+	var text := f.get_as_text()
+	f.close()
+	var data: Variant = JSON.parse_string(text)
+	if typeof(data) == TYPE_DICTIONARY:
+		return data
+	push_error("Le JSON n’est pas un dictionnaire en racine.")
+	return {}
