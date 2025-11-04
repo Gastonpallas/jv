@@ -8,16 +8,17 @@ var ressource_row_scene: PackedScene = preload("res://scenes/RessourceRow.tscn")
 
 
 func _ready() -> void:
-	var data_building := load_json("res://data/buildings.json")
+	var data_building := JSONUtils.load_json("res://data/buildings.json")
 	var buildings : Variant = data_building.get("buildings", [])
 	
-	var data_resspurces := load_json("res://data/ressources.json")
+	var data_resspurces := JSONUtils.load_json("res://data/ressources.json")
 	var ressources : Variant = data_resspurces.get("ressources", [])
 
 	for b in buildings:
 		var row := building_row_scene.instantiate() as BuildingRow
 		rows_building_box.add_child(row)
 
+		var id := str(b.get("id", ""))
 		var name := str(b.get("name", ""))
 		var prod : Dictionary = b.get("prod", {})
 		var dem  :Dictionary = b.get("dem",  {})
@@ -34,6 +35,9 @@ func _ready() -> void:
 			str(cost.get("unit", "")),
 			qty
 		)
+		
+		row.building_id = id
+		row.add_pressed.connect(_on_add_pressed)
 	
 	for r in ressources:
 		var row := ressource_row_scene.instantiate() as RessourcRow
@@ -53,15 +57,15 @@ func _ready() -> void:
 			qty
 		)
 	
-func load_json(path: String) -> Dictionary:
-	if not FileAccess.file_exists(path):
-		push_error("Fichier introuvable: %s" % path)
-		return {}
-	var f := FileAccess.open(path, FileAccess.READ)
-	var text := f.get_as_text()
-	f.close()
-	var data: Variant = JSON.parse_string(text)
-	if typeof(data) == TYPE_DICTIONARY:
-		return data
-	push_error("Le JSON n’est pas un dictionnaire en racine.")
-	return {}
+
+func _on_add_pressed(building_id : String) -> void :
+	var path := "user://buildings.json"
+	var data = JSONUtils.load_json(path)
+	var buildings: Array = data.get("buildings", [])
+	for building in buildings:
+		if building.get("id", "") == building_id:
+			building["qty"] = int(building.get("qty", 0)) + 1
+			print("Nouvelle quantité de", building_id, "=", building["qty"])
+			break
+	
+	JSONUtils.save_json(path, data)

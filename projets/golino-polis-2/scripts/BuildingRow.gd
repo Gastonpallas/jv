@@ -7,9 +7,9 @@ class_name BuildingRow
 @onready var dem_lbl: Label = $Dem
 @onready var cost_lbl: Label = $Cost
 @onready var qty_lbl: Label = $Qty
+@export var building_id := ""
 
-
-
+signal add_pressed(building_id: String)
 
 func set_values(
 	name_text: String,
@@ -29,3 +29,17 @@ func _format_number(value: float) -> String:
 
 func set_quantity(qty_value: int) -> void:
 	qty_lbl.text = str(qty_value)
+
+
+
+
+func _on_subtract_pressed() -> void:
+	pass # Replace with function body.
+
+
+func _on_add_pressed() -> void:
+	emit_signal("add_pressed", building_id) 
+	
+	
+	
+	

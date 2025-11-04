@@ -40,3 +40,6 @@ text = "-"
 layout_mode = 2
 theme_override_styles/focus = SubResource("StyleBoxEmpty_aou2r")
 text = "+"
+
+[connection signal="pressed" from="Subtract" to="." method="_on_subtract_pressed"]
+[connection signal="pressed" from="Add" to="." method="_on_add_pressed"]
