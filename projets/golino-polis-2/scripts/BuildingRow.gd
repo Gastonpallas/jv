@@ -10,6 +10,7 @@ class_name BuildingRow
 @export var building_id := ""
 
 signal add_pressed(building_id: String)
+signal subtract_pressed(building_id: String)
 
 func set_values(
 	name_text: String,
@@ -30,16 +31,12 @@ func _format_number(value: float) -> String:
 func set_quantity(qty_value: int) -> void:
 	qty_lbl.text = str(qty_value)
 
-
-
-
 func _on_subtract_pressed() -> void:
-	pass # Replace with function body.
-
+	emit_signal("subtract_pressed", building_id) 
 
 func _on_add_pressed() -> void:
 	emit_signal("add_pressed", building_id) 
 	
-	
-	
+func set_qty(qty: int) -> void:
+	qty_lbl.text = str(qty)
 	
