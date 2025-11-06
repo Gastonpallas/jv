@@ -1,20 +1,20 @@
 {
   "ressources": [
-    {
-      "id": "wood",
-      "name": "wood",
-      "prod":  0,
-      "dem":   0,
-      "balance":  0,
-      "qty": 0
-    },
-    {
-      "id": "plank",
-      "name": "plank",
-      "prod":  0,
-      "dem":   0,
-      "balance":  0,
-      "qty": 0
-    }
+	{
+	  "id": "wood",
+	  "name": "wood",
+	  "prod":  0,
+	  "dem":   0,
+	  "balance":  0,
+	  "qty": 0
+	},
+	{
+	  "id": "plank",
+	  "name": "plank",
+	  "prod":  0,
+	  "dem":   0,
+	  "balance":  0,
+	  "qty": 10
+	}
   ]
 }

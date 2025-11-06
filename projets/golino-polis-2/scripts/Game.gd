@@ -10,9 +10,10 @@ var building_row_scene: PackedScene = preload("res://scenes/BuildingRow.tscn")
 var ressource_row_scene: PackedScene = preload("res://scenes/RessourceRow.tscn")
 
 var data_building: Dictionary = {}
-var row_by_id: Dictionary = {}  # "id" -> BuildingRow
+var building_row_by_id: Dictionary = {}  # "id" -> BuildingRow
 
 var data_ressources: Dictionary = {}
+var ressource_row_by_id: Dictionary = {}
 
 func _ready() -> void:
 	data_building = JSONUtils.load_json(JSON_BUILDINGS)
@@ -25,7 +26,6 @@ func _ready() -> void:
 	
 	
 func _build_ressource_rows(ressources: Array) -> void:
-	print(ressources)
 	for ressource in ressources:
 		var row = ressource_row_scene.instantiate() as RessourcRow
 		rows_ressource_box.add_child(row)
@@ -38,7 +38,7 @@ func _build_ressource_rows(ressources: Array) -> void:
 		var qty  := int(ressource.get("qty", 0))
 		
 		row.set_values( name, prod, dem, balance, qty)
-		
+		ressource_row_by_id[id] = row
 
 func _build_building_rows(buildings: Array) -> void:
 	for b in buildings:
@@ -62,7 +62,7 @@ func _build_building_rows(buildings: Array) -> void:
 		)
 
 		# mémoriser la référence et connecter le signal
-		row_by_id[id] = row
+		building_row_by_id[id] = row
 		row.add_pressed.connect(_on_add_pressed)
 		row.subtract_pressed.connect(_on_subtract_pressed)
 
@@ -72,20 +72,41 @@ func _on_add_pressed(building_id: String) -> void:
 func _on_subtract_pressed(building_id : String) -> void:
 	_building_management(building_id, -1)
 
-func _building_management(building_id : String, qty : int) -> void : 
+func _building_management(building_id : String, qty : int) -> void :
+
 	# 1) +1 dans les données en mémoire
 	var buildings: Array = data_building.get("buildings", [])
 	for b in buildings:
 		if str(b.get("id","")) == building_id:
+			#Vérifier que on a assez de ressources pour construire 			
+			var ressource_needed = b.get("cost").get("unit")
+			var amount_needed = b.get("cost").get("amount")
+			
+			for ressource in data_ressources.get("ressources", []):
+				if(ressource.get("id") == ressource_needed):
+					
+					var new_ressource_amount = int(ressource.get("qty", 0)) - amount_needed
+					
+					if(new_ressource_amount < 0):
+						print("not enough ressources")
+						return
+					ressource["qty"] = new_ressource_amount
+					ressource_row_by_id[ressource_needed].set_quantity(new_ressource_amount)
+			
 			var new_qty := int(b.get("qty", 0)) + qty
 			if(new_qty < 0 ):
 				new_qty = 0
 			b["qty"] = new_qty
+			print("ok")
 
 			# 2) sauvegarder la nouvelle valeur
 			JSONUtils.save_json(JSON_BUILDINGS, data_building)
+			JSONUtils.save_json(JSON_RESSOURCES, data_ressources)
+
 
 			# 3) MAJ visuelle immédiate de la ligne affichée
-			if row_by_id.has(building_id):
-				row_by_id[building_id].set_qty(new_qty)
+			if building_row_by_id.has(building_id):
+				building_row_by_id[building_id].set_qty(new_qty)
+			
+			
 			return
