@@ -1,17 +1,44 @@
 extends Control
 
 const JSON_BUILDINGS := "user://buildings.json"
+const JSON_RESSOURCES := "user://ressources.json"
 
 @onready var rows_building_box: VBoxContainer = $VBoxContainerBuildings/Rows
 var building_row_scene: PackedScene = preload("res://scenes/BuildingRow.tscn")
 
+@onready var rows_ressource_box: VBoxContainer = $VBoxContainerRessources/Rows
+var ressource_row_scene: PackedScene = preload("res://scenes/RessourceRow.tscn")
+
 var data_building: Dictionary = {}
 var row_by_id: Dictionary = {}  # "id" -> BuildingRow
+
+var data_ressources: Dictionary = {}
 
 func _ready() -> void:
 	data_building = JSONUtils.load_json(JSON_BUILDINGS)
 	var buildings: Array = data_building.get("buildings", [])
 	_build_building_rows(buildings)
+	
+	data_ressources = JSONUtils.load_json(JSON_RESSOURCES)
+	var ressources: Array = data_ressources.get("ressources", [])
+	_build_ressource_rows(ressources)
+	
+	
+func _build_ressource_rows(ressources: Array) -> void:
+	print(ressources)
+	for ressource in ressources:
+		var row = ressource_row_scene.instantiate() as RessourcRow
+		rows_ressource_box.add_child(row)
+		
+		var id   := str(ressource.get("id", ""))
+		var name := str(ressource.get("name", ""))
+		var prod := float(ressource.get("prod", 0))
+		var dem  := float(ressource.get("dem",  0))
+		var balance := float(ressource.get("balance", 0))
+		var qty  := int(ressource.get("qty", 0))
+		
+		row.set_values( name, prod, dem, balance, qty)
+		
 
 func _build_building_rows(buildings: Array) -> void:
 	for b in buildings:
