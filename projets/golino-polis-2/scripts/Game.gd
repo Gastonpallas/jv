@@ -10,7 +10,7 @@ var building_row_scene: PackedScene = preload("res://scenes/BuildingRow.tscn")
 var ressource_row_scene: PackedScene = preload("res://scenes/RessourceRow.tscn")
 
 var data_building: Dictionary = {}
-var building_row_by_id: Dictionary = {}  # "id" -> BuildingRow
+var building_row_by_id: Dictionary = {}
 
 var data_ressources: Dictionary = {}
 var ressource_row_by_id: Dictionary = {}
@@ -23,11 +23,11 @@ func _ready() -> void:
 	data_ressources = JSONUtils.load_json(JSON_RESSOURCES)
 	var ressources: Array = data_ressources.get("ressources", [])
 	_build_ressource_rows(ressources)
-	
+	_recompute_resources_from_buildings()
 	
 func _build_ressource_rows(ressources: Array) -> void:
 	for ressource in ressources:
-		var row = ressource_row_scene.instantiate() as RessourcRow
+		var row = ressource_row_scene.instantiate() as RessourceRow
 		rows_ressource_box.add_child(row)
 		
 		var id   := str(ressource.get("id", ""))
@@ -73,7 +73,6 @@ func _on_subtract_pressed(building_id : String) -> void:
 	_building_management(building_id, -1)
 
 func _building_management(building_id : String, qty : int) -> void :
-
 	# 1) +1 dans les données en mémoire
 	var buildings: Array = data_building.get("buildings", [])
 	for b in buildings:
@@ -109,5 +108,64 @@ func _building_management(building_id : String, qty : int) -> void :
 			if building_row_by_id.has(building_id):
 				building_row_by_id[building_id].set_qty(new_qty)
 			
-			
+			_recompute_resources_from_buildings()
 			return
+			
+func _recompute_resources_from_buildings() -> void:
+	# Agrégats prod/dem par ressource
+	var totals: Dictionary = {}  # { rid: { "prod": float, "dem": float } }
+
+	var buildings: Array = data_building.get("buildings", []) as Array
+	for b in buildings:
+		var bd: Dictionary = b as Dictionary
+		var qty: int = int(bd.get("qty", 0))
+		if qty <= 0:
+			continue
+
+		var prod: Dictionary = bd.get("prod", {}) as Dictionary
+		var dem:  Dictionary = bd.get("dem",  {}) as Dictionary
+
+		var p_unit: String = str(prod.get("unit", ""))
+		var d_unit: String = str(dem.get("unit",  ""))
+
+		var p_amt: float = float(prod.get("amount", 0.0)) * qty
+		var d_amt: float = float(dem.get("amount",  0.0)) * qty
+
+		if p_unit != "" and p_unit != "—":
+			if not totals.has(p_unit):
+				totals[p_unit] = {"prod": 0.0, "dem": 0.0}
+			var entry_p: Dictionary = totals[p_unit] as Dictionary
+			entry_p["prod"] = float(entry_p.get("prod", 0.0)) + p_amt
+
+		if d_unit != "" and d_unit != "—":
+			if not totals.has(d_unit):
+				totals[d_unit] = {"prod": 0.0, "dem": 0.0}
+			var entry_d: Dictionary = totals[d_unit] as Dictionary
+			entry_d["dem"] = float(entry_d.get("dem", 0.0)) + d_amt
+
+	# Appliquer aux ressources + UI
+	var ressources: Array = data_ressources.get("ressources", []) as Array
+	for r in ressources:
+		var rd: Dictionary = r as Dictionary
+		var rid: String = str(rd.get("id", ""))
+
+		# rec est un Variant -> on caste en Dictionary
+		var rec: Dictionary = totals.get(rid, {"prod": 0.0, "dem": 0.0}) as Dictionary
+		var prod_total: float = float(rec.get("prod", 0.0))
+		var dem_total:  float = float(rec.get("dem",  0.0))
+		var balance:    float = prod_total - dem_total
+
+		# maj des données en mémoire (si tu veux persister)
+		rd["prod"] = prod_total
+		rd["dem"] = dem_total
+		rd["balance"] = balance
+
+		# row est aussi un Variant -> on caste en RessourceRow
+		if ressource_row_by_id.has(rid):
+			var row: RessourceRow = ressource_row_by_id[rid] as RessourceRow
+			if "set_prod" in row: row.set_prod(prod_total)
+			if "set_dem" in row: row.set_dem(dem_total)
+			if "set_balance" in row: row.set_balance(balance)
+
+	# (optionnel) persister
+	JSONUtils.save_json(JSON_RESSOURCES, data_ressources)
