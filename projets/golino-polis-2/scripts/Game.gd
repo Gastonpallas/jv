@@ -78,26 +78,27 @@ func _building_management(building_id : String, qty : int) -> void :
 	var buildings: Array = data_building.get("buildings", [])
 	for b in buildings:
 		if str(b.get("id","")) == building_id:
-			#Vérifier que on a assez de ressources pour construire 			
-			var ressource_needed = b.get("cost").get("unit")
-			var amount_needed = b.get("cost").get("amount")
 			
-			for ressource in data_ressources.get("ressources", []):
-				if(ressource.get("id") == ressource_needed):
-					
-					var new_ressource_amount = int(ressource.get("qty", 0)) - amount_needed
-					
-					if(new_ressource_amount < 0):
-						print("not enough ressources")
-						return
-					ressource["qty"] = new_ressource_amount
-					ressource_row_by_id[ressource_needed].set_quantity(new_ressource_amount)
-			
+			if qty > 0 :
+				#Vérifier que on a assez de ressources pour construire 			
+				var ressource_needed = b.get("cost").get("unit")
+				var amount_needed = b.get("cost").get("amount")
+				
+				for ressource in data_ressources.get("ressources", []):
+					if(ressource.get("id") == ressource_needed):
+						
+						var new_ressource_amount = int(ressource.get("qty", 0)) - amount_needed
+						
+						if(new_ressource_amount < 0):
+							print("not enough ressources")
+							return
+						ressource["qty"] = new_ressource_amount
+						ressource_row_by_id[ressource_needed].set_quantity(new_ressource_amount)
+
 			var new_qty := int(b.get("qty", 0)) + qty
 			if(new_qty < 0 ):
 				new_qty = 0
 			b["qty"] = new_qty
-			print("ok")
 
 			# 2) sauvegarder la nouvelle valeur
 			JSONUtils.save_json(JSON_BUILDINGS, data_building)
