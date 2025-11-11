@@ -15,6 +15,9 @@ var building_row_by_id: Dictionary = {}
 var data_ressources: Dictionary = {}
 var ressource_row_by_id: Dictionary = {}
 
+var acc_by_res: Dictionary = {} # rid -> float
+
+
 func _ready() -> void:
 	data_building = JSONUtils.load_json(JSON_BUILDINGS)
 	var buildings: Array = data_building.get("buildings", [])
@@ -24,6 +27,10 @@ func _ready() -> void:
 	var ressources: Array = data_ressources.get("ressources", [])
 	_build_ressource_rows(ressources)
 	_recompute_resources_from_buildings()
+	
+	for r in data_ressources.get("ressources", []) as Array:
+		var rid := str((r as Dictionary).get("id",""))
+		acc_by_res[rid] = 0.0
 	
 func _build_ressource_rows(ressources: Array) -> void:
 	for ressource in ressources:
@@ -169,3 +176,26 @@ func _recompute_resources_from_buildings() -> void:
 
 	# (optionnel) persister
 	JSONUtils.save_json(JSON_RESSOURCES, data_ressources)
+
+
+func _on_tick_timer_timeout() -> void:
+	var ressources: Array = data_ressources.get("ressources", []) as Array
+	for r in ressources:
+		print(r)
+		var rd: Dictionary = r as Dictionary
+		var rid: String = str(rd.get("id",""))
+		var balance: float = float(rd.get("balance", 0.0))
+
+		# accumule les décimales
+		acc_by_res[rid] = float(acc_by_res.get(rid, 0.0)) + balance * 1.0  # TICK_SEC = 1
+
+		# transfère la partie entière dans qty
+		var delta_int := int(acc_by_res[rid])
+		if delta_int != 0:
+			rd["qty"] = int(rd.get("qty", 0)) + delta_int
+			acc_by_res[rid] -= float(delta_int)
+
+			# MAJ visuelle
+			if ressource_row_by_id.has(rid):
+				var row: RessourceRow = ressource_row_by_id[rid] as RessourceRow
+				row.set_quantity(rd["qty"])
