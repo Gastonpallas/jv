@@ -179,23 +179,67 @@ func _recompute_resources_from_buildings() -> void:
 
 
 func _on_tick_timer_timeout() -> void:
+	# 1) snapshot des stocks actuels
+	var res_qty: Dictionary = {}  # id -> float
 	var ressources: Array = data_ressources.get("ressources", []) as Array
 	for r in ressources:
-		print(r)
-		var rd: Dictionary = r as Dictionary
+		var rd := r as Dictionary
 		var rid: String = str(rd.get("id",""))
-		var balance: float = float(rd.get("balance", 0.0))
+		res_qty[rid] = float(rd.get("qty", 0.0))
 
-		# accumule les décimales
-		acc_by_res[rid] = float(acc_by_res.get(rid, 0.0)) + balance * 1.0  # TICK_SEC = 1
+	# 2) simulateur par bâtiment (recettes)
+	var buildings: Array = data_building.get("buildings", []) as Array
+	for b in buildings:
+		var bd := b as Dictionary
+		var qty_buildings: int = int(bd.get("qty", 0))
+		if qty_buildings <= 0:
+			continue
 
-		# transfère la partie entière dans qty
-		var delta_int := int(acc_by_res[rid])
-		if delta_int != 0:
-			rd["qty"] = int(rd.get("qty", 0)) + delta_int
-			acc_by_res[rid] -= float(delta_int)
+		var prod: Dictionary = bd.get("prod", {}) as Dictionary
+		var dem:  Dictionary = bd.get("dem",  {}) as Dictionary
 
-			# MAJ visuelle
-			if ressource_row_by_id.has(rid):
-				var row: RessourceRow = ressource_row_by_id[rid] as RessourceRow
-				row.set_quantity(rd["qty"])
+		var p_unit: String = str(prod.get("unit",""))
+		var d_unit: String = str(dem.get("unit",""))
+
+		var p_amt_per: float = float(prod.get("amount", 0.0))   # quantité produite par bâtiment et par tick
+		var d_amt_per: float = float(dem.get("amount",  0.0))   # quantité consommée par bâtiment et par tick
+
+		# si pas d'input (—) on produit librement
+		if d_unit == "" or d_unit == "—" or d_amt_per <= 0.0:
+			if p_unit != "" and p_unit != "—":
+				res_qty[p_unit] = float(res_qty.get(p_unit, 0.0)) + p_amt_per * qty_buildings
+			continue
+
+		# sinon, on limite par l'input dispo
+		var have_input: float = float(res_qty.get(d_unit, 0.0))
+		var need_input: float = d_amt_per * qty_buildings
+		if need_input <= 0.0:
+			continue
+
+		# facteur de limitation 0..1 (combien du cycle peut-on réaliser)
+		var f: float = clamp(have_input / need_input, 0.0, 1.0)
+		if f <= 0.0:
+			continue
+
+		var input_used: float = need_input * f
+		var output_gained: float = p_amt_per * qty_buildings * f
+
+		# applique immédiatement (consomme avant produit)
+		res_qty[d_unit] = max(0.0, have_input - input_used)
+		if p_unit != "" and p_unit != "—":
+			res_qty[p_unit] = float(res_qty.get(p_unit, 0.0)) + output_gained
+
+	# 3) écrire les stocks et mettre à jour l’UI
+	for r in ressources:
+		var rd := r as Dictionary
+		var rid: String = str(rd.get("id",""))
+		var new_qty: float = float(res_qty.get(rid, 0.0))
+		rd["qty"] = new_qty
+
+		# MAJ visuelle
+		if ressource_row_by_id.has(rid):
+			var row: RessourceRow = ressource_row_by_id[rid] as RessourceRow
+			row.set_quantity(new_qty)  # adapte si tu affiches des ints (str(int(new_qty)))
+
+	# (optionnel) persister périodiquement, pas à chaque frame
+	# JSONUtils.save_json(JSON_RESSOURCES, data_ressources)
