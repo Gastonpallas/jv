@@ -15,6 +15,22 @@
 	  "dem":   { "amount": 2, "unit": "wood"   },
 	  "cost":  { "amount": 10, "unit": "plank" },
 	  "qty": 0
+	},
+	{
+	  "id": "huntcamp",
+	  "name": "Hunt Camp",
+	  "prod":  { "amount": 2, "unit": "meet" },
+	  "dem":   { "amount": 0, "unit": ""   },
+	  "cost":  { "amount": 10, "unit": "plank" },
+	  "qty": 0
+	},
+	{
+	  "id": "goblinfarm",
+	  "name": "Goblin Farm",
+	  "prod":  { "amount": 2, "unit": "goblin" },
+	  "dem":   { "amount": 2, "unit": "meet"   },
+	  "cost":  { "amount": 10, "unit": "plank" },
+	  "qty": 0
 	}
   ]
 }

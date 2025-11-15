@@ -14,7 +14,23 @@
 	  "prod":  0,
 	  "dem":   0,
 	  "balance":  0,
-	  "qty": 10
+	  "qty": 50
+	},
+	{
+	  "id": "meet",
+	  "name": "meet",
+	  "prod":  0,
+	  "dem":   0,
+	  "balance":  0,
+	  "qty": 0
+	},
+	{
+	  "id": "goblin",
+	  "name": "goblin",
+	  "prod":  0,
+	  "dem":   0,
+	  "balance":  0,
+	  "qty": 0
 	}
   ]
 }
